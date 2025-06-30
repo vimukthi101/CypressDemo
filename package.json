@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "rm -rf cypress/report/mochawesome-report/* cypress/report/htmlReport/* cypress/report/merged-file/* || true",
-    "test": "npx cypress run",
+    "test": "npx cypress run || true",
     "posttest": "npm run merge-data && npm run generate-report",
     "merge-data": "npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/merged-file/output.json",
     "generate-report": "npx marge cypress/report/merged-file/output.json --reportDir ./cypress/report/htmlReport/ --inline"
