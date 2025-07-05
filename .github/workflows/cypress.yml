@@ -39,4 +39,4 @@ jobs:
             cypress-${{ runner.os }}-
 
       - name: Run Cypress tests (record)
-        run: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+        run: npx cypress run --record --parallel --key ${{ secrets.CYPRESS_RECORD_KEY }}
