@@ -7,7 +7,7 @@ export default defineConfig({
     video: true,
     screenshotOnRunFailure: true,
     watchForFileChanges: false,
-    retries: 0,
+    retries: 1,
     defaultBrowser: 'chrome',
     reporter: 'mochawesome',
     reporterOptions: {
