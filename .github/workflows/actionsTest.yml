@@ -3,15 +3,15 @@ name: Actions Test
 on: 
   pull_request:
     branches:
-      main
+      - '**'
   push:
     branches:
-      main
+      - main
   workflow_dispatch:
 
 jobs:
   firstJob:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:  
       - name: First_Step
         uses: actions/checkout@v4
@@ -21,7 +21,8 @@ jobs:
         shell: bash
 
   secondJob:
-    runs-on: ubuntu_latest
+    needs: firstJob
+    runs-on: ubuntu-latest
     steps:
       - name: First_Step
         run: echo 'Bye'
