@@ -5,18 +5,14 @@ on:
     branches:
       - main
       
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-  
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-    #   matrix:
-    #     containers: [1, 2] # Uses 2 parallel instances
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+      matrix:
+        containers: [1, 2] # Uses 2 parallel instances
         
     steps:
       - name: Checkout code
@@ -39,4 +35,4 @@ jobs:
             cypress-${{ runner.os }}-
 
       - name: Run Cypress tests (record)
-        run: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+        run: npx cypress run --record --parallel --ci-build-id ${{ github.run_id }} --key ${{ secrets.CYPRESS_RECORD_KEY }}
