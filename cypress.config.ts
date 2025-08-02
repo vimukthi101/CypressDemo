@@ -1,7 +1,7 @@
 import { defineConfig } from "cypress";
 
 export default defineConfig({
-  projectId: 'j86ixu',
+  projectId: '88i22b',
   e2e: {
     baseUrl: 'https://www.lambdatest.com/selenium-playground',
     video: true,
